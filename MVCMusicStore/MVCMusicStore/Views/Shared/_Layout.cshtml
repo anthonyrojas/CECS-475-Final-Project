@@ -28,6 +28,10 @@
         </div>
         <hr />
         <div id="footer">
+            @if (Session["Username"] != null)
+            {
+                <p>@Session["Username"] is logged in</p>
+            }
             built with <a href="http://asp.net/mvc">ASP.NET MVC 5</a>
         </div>
     </div>

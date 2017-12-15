@@ -118,6 +118,12 @@ C:\Users\Anthony Rojas\Documents\CECS-475-Final-Project\MVCMusicStore\MVCMusicSt
 C:\Users\Anthony Rojas\Documents\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\Microsoft.AspNet.TelemetryCorrelation.xml
 C:\Users\Anthony Rojas\Documents\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\System.Diagnostics.DiagnosticSource.xml
 C:\Users\Anthony Rojas\Documents\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\obj\Debug\MVCMusicStore.csprojResolveAssemblyReference.cache
+C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\System.IO.Compression.dll
+C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\VBCSCompiler.exe
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\ApplicationInsights.config
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\MVCMusicStore.dll.config
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\MVCMusicStore.dll
@@ -129,13 +135,9 @@ C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\csi.exe
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\csi.exe.config
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\csi.rsp
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\Microsoft.CodeAnalysis.dll
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\Microsoft.VisualBasic.Core.targets
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\Microsoft.Win32.Primitives.dll
@@ -145,7 +147,6 @@ C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\System.Console.
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\System.Diagnostics.Process.dll
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\System.Diagnostics.StackTrace.dll
-C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\System.IO.Compression.dll
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\System.IO.FileSystem.dll
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\System.IO.FileSystem.Primitives.dll
@@ -168,7 +169,6 @@ C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\System.Xml.XPat
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\vbc.exe
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\vbc.exe.config
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\vbc.rsp
-C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\VBCSCompiler.exe
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\roslyn\VBCSCompiler.exe.config
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\x86\sqlcese40.dll
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\x86\sqlceqp40.dll
@@ -234,7 +234,6 @@ C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\System.Web.Mvc.xml
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\System.Net.Http.Formatting.xml
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\System.Web.Http.xml
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\bin\System.Web.Http.WebHost.xml
-C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\obj\Debug\MVCMusicStore.csprojResolveAssemblyReference.cache
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\obj\Debug\MVCMusicStore.csproj.CoreCompileInputs.cache
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\obj\Debug\MVCMusicStore.dll
 C:\CECS-475-Final-Project\MVCMusicStore\MVCMusicStore\obj\Debug\MVCMusicStore.pdb
