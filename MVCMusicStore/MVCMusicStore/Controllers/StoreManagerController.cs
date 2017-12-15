@@ -10,7 +10,7 @@ using MVCMusicStore.Models;
 
 namespace MVCMusicStore.Controllers
 {
-    [Authorize(Roles ="Administrator")]
+    //[Authorize(Roles ="Administrator")]
     public class StoreManagerController : Controller
     {
         private MusicStoreEntities db = new MusicStoreEntities();
@@ -18,8 +18,19 @@ namespace MVCMusicStore.Controllers
         // GET: StoreManager
         public ActionResult Index()
         {
-            var albums = db.Albums.Include(a => a.Artist).Include(a => a.Genre);
-            return View(albums.ToList());
+            if (Session["Username"] == null)
+            {
+                return View("SessionError");
+            }
+            else if (Session["Username"].ToString() == "Administrator")
+            {
+                var albums = db.Albums.Include(a => a.Artist).Include(a => a.Genre);
+                return View(albums.ToList());
+            }
+            else
+            {
+                return View("SessionError");
+            }
         }
 
         // GET: StoreManager/Details/5

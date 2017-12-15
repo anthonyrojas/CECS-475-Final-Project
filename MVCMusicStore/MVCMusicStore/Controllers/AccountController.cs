@@ -11,65 +11,22 @@ namespace MVCMusicStore.Controllers
 {
     public class AccountController : Controller
     {
-
-        /*private void MigrateShoppingCart(string UserName)
+        AccountEntities accountDB = new AccountEntities();
+        private void MigrateShoppingCart(string UserName)
         {
             // Associate shopping cart items with logged-in user
             var cart = ShoppingCart.GetCart(this.HttpContext);
 
             cart.MigrateCart(UserName);
             Session[ShoppingCart.CartSessionKey] = UserName;
-        }*/
-
-        //
-        // GET: /Account/LogOn
-
-        public ActionResult LogOn()
-        {
-            return View();
         }
 
-        //
-        // POST: /Account/LogOn
-
-        [HttpPost]
-        public ActionResult LogOn(LogOnModel model, string returnUrl)
+        public ActionResult Index()
         {
-            if (ModelState.IsValid)
+            using (accountDB)
             {
-                if (Membership.ValidateUser(model.UserName, model.Password))
-                {
-                    //MigrateShoppingCart(model.UserName); 
-                    
-                    FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
-                    if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
-                        && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
-                    {
-                        return Redirect(returnUrl);
-                    }
-                    else
-                    {
-                        return RedirectToAction("Index", "Home");
-                    }
-                }
-                else
-                {
-                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
-                }
+                return View(accountDB.UserAccounts.ToList());
             }
-
-            // If we got this far, something failed, redisplay form
-            return View(model);
-        }
-
-        //
-        // GET: /Account/LogOff
-
-        public ActionResult LogOff()
-        {
-            FormsAuthentication.SignOut();
-
-            return RedirectToAction("Index", "Home");
         }
 
         //
@@ -84,83 +41,68 @@ namespace MVCMusicStore.Controllers
         // POST: /Account/Register
 
         [HttpPost]
-        public ActionResult Register(RegisterModel model)
+        public ActionResult Register(UserAccount model)
         {
             if (ModelState.IsValid)
             {
-                // Attempt to register the user
-                MembershipCreateStatus createStatus;
-                Membership.CreateUser(model.UserName, model.Password, model.Email, "question", "answer", true, null, out createStatus);
-
-                if (createStatus == MembershipCreateStatus.Success)
+                using (accountDB)
                 {
-                    //MigrateShoppingCart(model.UserName); 
-                    
-                    FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
-                    return RedirectToAction("Index", "Home");
+                    accountDB.UserAccounts.Add(model);
+                    accountDB.SaveChanges();
                 }
-                else
-                {
-                    ModelState.AddModelError("", ErrorCodeToString(createStatus));
-                }
+                ModelState.Clear();
+                ViewBag.Message = String.Format("{0} {1} successfully registered!", 
+                    model.FirstName, model.LastName );
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return View();
         }
 
-        //
-        // GET: /Account/ChangePassword
-
-        [Authorize]
-        public ActionResult ChangePassword()
+        //Login
+        public ActionResult Login()
         {
             return View();
         }
 
-        //
-        // POST: /Account/ChangePassword
-
-        [Authorize]
         [HttpPost]
-        public ActionResult ChangePassword(ChangePasswordModel model)
+        public ActionResult Login(UserAccount model)
         {
-            if (ModelState.IsValid)
+            using (accountDB)
             {
-
-                // ChangePassword will throw an exception rather
-                // than return false in certain failure scenarios.
-                bool changePasswordSucceeded;
                 try
                 {
-                    MembershipUser currentUser = Membership.GetUser(User.Identity.Name, true /* userIsOnline */);
-                    changePasswordSucceeded = currentUser.ChangePassword(model.OldPassword, model.NewPassword);
+                    var user = accountDB.UserAccounts.Single(u => u.Username == model.Username
+                        && u.Password == model.Password);
+                    if (user != null)
+                    {
+                        Session["UserId"] = user.UserId.ToString();
+                        Session["Username"] = user.Username.ToString();
+                        return RedirectToAction("LoggedIn");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Username or password is wrong");
+                    }
                 }
-                catch (Exception)
+                catch
                 {
-                    changePasswordSucceeded = false;
-                }
-
-                if (changePasswordSucceeded)
-                {
-                    return RedirectToAction("ChangePasswordSuccess");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
+                    ModelState.AddModelError("", "Username or password is wrong");
                 }
             }
-
-            // If we got this far, something failed, redisplay form
-            return View(model);
+            return View();
         }
 
-        //
-        // GET: /Account/ChangePasswordSuccess
-
-        public ActionResult ChangePasswordSuccess()
+        public ActionResult LoggedIn()
         {
-            return View();
+            if (Session["UserId"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return View("SessionError");
+            }
         }
 
         #region Status Codes
